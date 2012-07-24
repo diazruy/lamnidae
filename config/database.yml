@@ -16,9 +16,10 @@ development:
   adapter: postgresql
   encoding: unicode
   database: lamnidae_development
+  host: localhost
   pool: 5
-  username: lamnidae
-  password:
+  username: postgres
+  password: postgres
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -42,9 +43,10 @@ test:
   adapter: postgresql
   encoding: unicode
   database: lamnidae_test
+  host: localhost
   pool: 5
-  username: lamnidae
-  password:
+  username: postgres
+  password: postgres
 
 production:
   adapter: postgresql
