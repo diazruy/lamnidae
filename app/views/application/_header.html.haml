@@ -1,1 +1,15 @@
 %header#header
+  %div#top
+    %div#logo
+      %h1
+        = link_to "Lamnidae Consulting", root_url
+    %nav#menu
+      %ul
+        %li= link_to 'Home', root_path
+        -#%li
+          -#%a{ :href => "#" } Services
+        -#%li
+          -#%a{ :href => "#" } Portfolio
+        %li= link_to "Contact Us", contact_us_path
+        %li= link_to "About Us", about_us_path
+

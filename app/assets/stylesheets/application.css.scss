@@ -24,6 +24,7 @@
 @import "application/chromeframe";
 @import "application/document";
 @import "application/media_queries"; // Media queries last
+@import "modules/all";
 
 //-----------------------------------------
 // Append includes
@@ -31,4 +32,5 @@
 @include h5bp-helpers;
 @include h5bp-media;
 
-@import "layouts/center";
+@import "bootstrap";
+@import "style";

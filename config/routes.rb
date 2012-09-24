@@ -1,5 +1,7 @@
 Lamnidae::Application.routes.draw do
   get "home/index"
+  get "home/about_us", as: "about_us"
+  get "home/contact_us", as: "contact_us"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

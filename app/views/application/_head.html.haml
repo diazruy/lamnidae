@@ -6,7 +6,8 @@
   %meta{ 'http-equiv' => 'X-UA-Compatible', :content => 'IE=edge,chrome=1' }/
 
   %title
-    == #{ controller.controller_name.titleize } - #{ controller.action_name.titleize }
+    = yield(:title).empty? ? "Ruby on Rails Web development" : yield(:title)
+    | Lamnidae Consulting
 
   %meta{ :name => "description", :content => "" }/
 
