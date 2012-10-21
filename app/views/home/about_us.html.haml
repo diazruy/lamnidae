@@ -1,13 +1,12 @@
-- content_for(:title) { "About Us" }
+- content_for(:title) { "About" }
 
 .row
   .span12.content
     .contentblock
-      %h1 About Us
+      %h1 About Lamnidae Consulting
     .row
       .span6.offset1
         .contentblock
-
           %p
             Vancouver, BC based company founded in September 2012 by Ruy Diaz, a Software Developer with over
             10 years professional experience, developing software for the web.
@@ -30,6 +29,7 @@
             Some of the technologies that Ruy has worked with include:
 
             %ul
+              %li Ruby
               %li Ruby on Rails
               %li
                 Javascript
@@ -37,8 +37,14 @@
                   %li jQuery
                   %li Mootools
                   %li Prototype
+                  %li Coffeescript
               %li HTML5
-              %li CSS3
+              %li
+                CSS3
+                %ul
+                  %li Bootstrap
+                  %li SASS
+                  %li= link_to "SMACSS", "http://smacss.com"
               %li
                 Databases
                 %ul
@@ -46,7 +52,7 @@
                   %li PostgresQL
                   %li MongoDB
               %li
-                TDD
+                Test Driven Development (TDD)
                 %ul
                   %li RSpec
                   %li Cucumber
@@ -54,4 +60,12 @@
               %li Heroku
               %li Flash (Flex 4)
               %li Java
-              %li Objective-C
+      .span5
+        .media
+          = image_tag "http://www.gravatar.com/avatar/fd1925c8356bb0ece18731063b25141d?s=150", class: 'media-image'
+          .media-content
+            %ul.unstyled
+              %li= link_to "Stack Overflow", "http://stackoverflow.com/users/302246/ruy-diaz", target: '_blank'
+              %li= link_to "LinkedIn", "http://ca.linkedin.com/in/diazruy", target: '_blank'
+              %li= link_to "Twitter", "http://twitter.com/diazruy", target: '_blank'
+              %li= link_to "About.me", "http://about.me/ruydiaz", target: '_blank'
