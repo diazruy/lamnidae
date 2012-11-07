@@ -1,0 +1,25 @@
+@import "compass/utilities/general/clearfix";
+
+.item {
+  height: 200px;
+  padding: 0 90px;
+  @include clearfix();
+}
+
+$title-width: 200px;
+.item-title {
+  float: left;
+  width: $title-width;
+
+  & > h3 {
+    text-align: right;
+    margin-right: 30px;
+    font-size: 50px;
+  }
+}
+
+.item-content {
+  margin-top: 50px;
+  float: left;
+  width: 700px - $title-width;
+}

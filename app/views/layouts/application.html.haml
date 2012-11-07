@@ -3,12 +3,12 @@
 - html_tag :class => "no-js", :lang => "en" do
   = render "head"
 
-  %body{ :class => "#{ controller.controller_name }" }
+  %body{ :class => "#{ controller.controller_name }", data: {target: '.navbar'} }
     .container
       = render "chromeframe"
       = render "header"
 
-      #main{ :role => "main" }
+      %div
         = render "flashes"
         = yield
 
@@ -16,3 +16,6 @@
 
     -# Javascript at the bottom for fast page loading
     = render "javascripts"
+
+    :javascript
+      $('body').scrollspy()

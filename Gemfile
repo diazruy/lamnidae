@@ -18,7 +18,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
   gem 'compass-rails'
   gem 'compass-h5bp'
-  gem 'bootstrap-sass', '~> 2.1.0.0'
+  gem 'bootstrap-sass'
 end
 
 gem 'haml-rails'

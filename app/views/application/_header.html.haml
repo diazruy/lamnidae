@@ -1,15 +1,14 @@
-%header#header
-  %div#top
-    %div#logo
-      %h1
-        = link_to "Lamnidae Consulting", root_url
-    %nav#menu
-      %ul
-        %li= link_to 'Home', root_path
-        -#%li
-          -#%a{ :href => "#" } Services
-        -#%li
-          -#%a{ :href => "#" } Portfolio
-        %li= link_to "Contact", contact_us_path
-        %li= link_to "About", about_us_path
+%nav.navbar.navbar-fixed-top
+  .navbar-inner
+    .container
+      = link_to "Lamnidae Consulting", root_url, class: 'brand'
+      %ul.nav
+        %li= link_to 'What', '#home'
+        %li= link_to 'How', '#how'
+        %li= link_to "Who", '#about'
+        %li= link_to "Ping", '#contact'
+
+      .nav.pull-right
+        .logo
+
 

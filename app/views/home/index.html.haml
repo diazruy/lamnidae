@@ -1,42 +1,18 @@
 .row
-  #banner.span12
-    %h1
-      Killer Ruby on Rails and front-end web development.
-
-.row
-  .span12.content
-    .row
-      .span4
-        .contentblock
-          %h2 Strategy
-          %p
-            We will discuss your objectives and take an iterative approach
-            to solving your needs, ensuring the delivery of a product
-            that meets or exceeds your expectations.
-          %p
-            Following Agile methodologies with frequent deliveries and
-            progress review will ensure that
-            you have no unpleasant surprises at the end of a long
-            iteration.
-      .span4
-        .contentblock
-          %h2 Quality
-          %p
-            First and foremost, we are committed to quality. Code is delivered
-            with comprehensive automated tests and utmost care is
-            given to using best-practices, appropriate design patterns
-            and documentation. We take pride in what we produce and do not
-            take shortcuts when it comes to quality.
-      .span4
-        .contentblock
-          %h2 User Experience
-          %p
-            We are firm believers in providing users with the smoothest,
-            most painless experience. When users can't figure out something,
-            it is not their fault, it's the interface's.
-          %p
-            For this reason, we will help you to provide the best UX possible.
-            Over ten years in web development allows us to have a good feel for
-            interaction design and we will work with you and your user testing
-            to hone in the best results possible.
-
+  .span12
+    %section#home
+      %h1 Killer web development.
+      .content
+        = render "what"
+    %section#how
+      %h2 HOW
+      .content
+        = render 'how'
+    %section#about
+      %h2 WHO
+      .content
+        = render 'about_us'
+    %section#contact
+      %h2 PING
+      .content
+        = render 'contact_us'
