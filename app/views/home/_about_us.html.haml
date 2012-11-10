@@ -30,14 +30,14 @@
           %p
             Some of the technologies that Ruy has worked with include:
 
-            %ul.skills.accordion
+            %ul#skills.accordion
               %li Ruby
               %li Ruby on Rails
               %li.accordion-group
                 %span
                   Javascript
-                  %a{data: {toggle: :collapse, target: '.skills-js', parent: '.skills'}} (details)
-                %ul.skills-js.collapse
+                  %a{data: {toggle: :collapse, parent: '#skills'}, href: '#skills-js'} (details)
+                %ul#skills-js.collapse
                   %li jQuery
                   %li jQuery Mobile
                   %li Mootools
@@ -48,8 +48,8 @@
               %li.accordion-group
                 %span
                   CSS3
-                  %a{data: {toggle: :collapse, target: '.skills-css', parent: '.skills'}} (details)
-                %ul.skills-css.collapse
+                  %a{data: {toggle: :collapse, parent: '#skills'}, href: '#skills-css'} (details)
+                %ul#skills-css.collapse
                   %li Bootstrap
                   %li SASS
                   %li SMACSS
@@ -57,16 +57,16 @@
               %li.accordion-group
                 %span
                   Databases
-                  %a{data: {toggle: :collapse, target: '.skills-db', parent: '.skills'}} (details)
-                %ul.skills-db.collapse
+                  %a{data: {toggle: :collapse, parent: '#skills'}, href: '#skills-db'} (details)
+                %ul#skills-db.collapse
                   %li MySQL
                   %li PostgreSQL
                   %li MongoDB (NoSQL)
               %li.accordion-group
                 %span
                   Test Driven Development
-                  %a{data: {toggle: :collapse, target: '.skills-tdd', parent: '.skills'}} (details)
-                %ul.skills-tdd.collapse
+                  %a{data: {toggle: :collapse, parent: '#skills'}, href: '#skills-tdd'} (details)
+                %ul#skills-tdd.collapse
                   %li RSpec
                   %li Cucumber
                   %li Jasmine
