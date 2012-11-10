@@ -1,0 +1,5 @@
+@import "compass/utilities/general/min";
+
+.switcher-tab {
+  @include min-height(590px);
+}

@@ -1,18 +1,18 @@
 .row
   .span12
-    %section#home
+    %section.switcher-tab#home
       %h1 Killer web development.
       .content
         = render "what"
-    %section#how
+    %section.switcher-tab.hide#how
       %h2 HOW
       .content
         = render 'how'
-    %section#about
+    %section.switcher-tab.hide#about
       %h2 WHO
       .content
         = render 'about_us'
-    %section#contact
+    %section.switcher-tab.hide#contact
       %h2 PING
       .content
         = render 'contact_us'
