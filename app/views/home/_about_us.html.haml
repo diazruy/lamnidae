@@ -17,9 +17,15 @@
 
           %p
             Some of Ruy's pet projects include
-            = link_to "Splitsee", "http://splitsee.com", target: '_blank'
+            = link_to "Splitsee", "http://www.splitsee.com", target: '_blank'
             and
-            = link_to("You Can Get Me This", "http://youcangetmethis.com", target: '_blank') + "."
+            = link_to("You Can Get Me This", "http://www.youcangetmethis.com", target: '_blank') + "."
+
+          %p
+            Ruy has also contributed on #{ link_to "SammySays", "http://www.sammysays.com", target: "_blank" }
+            while contracting with #{link_to "Gastown Labs", "http://www.gastownlabs.com", target: "_blank"}, as
+            well ass doing his part for open source and community service as an active member of
+            #{ link_to "Van.io", "http://van.io", target: "_blank"}.
 
           %p
             Some of the technologies that Ruy has worked with include:
@@ -33,7 +39,9 @@
                   %a{data: {toggle: :collapse, target: '.skills-js', parent: '.skills'}} (details)
                 %ul.skills-js.collapse
                   %li jQuery
+                  %li jQuery Mobile
                   %li Mootools
+                  %li Sencha Touch
                   %li Prototype
                   %li Coffeescript
               %li HTML5
@@ -45,6 +53,7 @@
                   %li Bootstrap
                   %li SASS
                   %li SMACSS
+                  %li Compass
               %li.accordion-group
                 %span
                   Databases
@@ -52,7 +61,7 @@
                 %ul.skills-db.collapse
                   %li MySQL
                   %li PostgreSQL
-                  %li MongoDB
+                  %li MongoDB (NoSQL)
               %li.accordion-group
                 %span
                   Test Driven Development
