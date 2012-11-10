@@ -15,5 +15,6 @@
 //= require h5bp
 //= require bootstrap-transition
 //= require bootstrap-carousel
-//= require widgets/switcher
+//= require_tree './widgets'
+//= require contact_form
 
