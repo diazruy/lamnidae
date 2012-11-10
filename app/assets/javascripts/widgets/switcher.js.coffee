@@ -1,5 +1,5 @@
 $ ->
-  $('.nav').on 'click', 'a', (e)->
+  $('.switcher').on 'click', (e)->
     e.preventDefault()
     $link = $(e.target)
     $target = $($link.attr('href') )

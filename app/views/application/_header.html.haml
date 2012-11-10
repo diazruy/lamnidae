@@ -1,12 +1,12 @@
 %nav.navbar.navbar-fixed-top
   .navbar-inner
     .container
-      = link_to "Lamnidae Consulting", root_url, class: 'brand'
+      = link_to "Lamnidae Consulting", '#home', class: 'brand switcher'
       %ul.nav
-        %li.active= link_to 'What', '#home'
-        %li= link_to 'How', '#how'
-        %li= link_to "Who", '#who'
-        %li= link_to "Ping", '#ping'
+        %li.active= link_to 'What', '#home', class: 'switcher'
+        %li= link_to 'How', '#how', class: 'switcher'
+        %li= link_to "Who", '#who', class: 'switcher'
+        %li= link_to "Ping", '#ping', class: 'switcher'
 
       .nav.pull-right
         .logo
