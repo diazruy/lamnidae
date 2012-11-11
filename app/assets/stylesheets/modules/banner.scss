@@ -4,8 +4,8 @@
 
 }
 
-$logo: 'logo_300x143.png';
-@media  (max-width: 767px) {
+$logo: 'logo_260x124.png';
+@media  (max-width: 320px) {
   .banner {
     background: image-url($logo) center center no-repeat;
     height: image-height($logo);
