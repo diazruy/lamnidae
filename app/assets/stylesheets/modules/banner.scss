@@ -1,14 +1,14 @@
+$logo: 'logo_260x124.png';
 .banner {
-  background: image-url('logo.png') center center no-repeat;
-  height: 360px;
-
+  background: image-url($logo) center center no-repeat;
+  height: image-height($logo);
 }
 
-$logo: 'logo_260x124.png';
-@media  (max-width: 320px) {
+$logo-large: 'logo.png';
+@media  (min-width: 680px) {
   .banner {
-    background: image-url($logo) center center no-repeat;
-    height: image-height($logo);
+    background: image-url($logo-large) center center no-repeat;
+    height: image-height($logo-large);
   }
 
 }
