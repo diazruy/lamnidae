@@ -4,10 +4,11 @@
 
 }
 
+$logo: 'logo_300x143.png';
 @media  (max-width: 767px) {
   .banner {
-    background: image-url('logo_medium.png') center center no-repeat;
-    height: 167px;
+    background: image-url($logo) center center no-repeat;
+    height: image-height($logo);
   }
 
 }
