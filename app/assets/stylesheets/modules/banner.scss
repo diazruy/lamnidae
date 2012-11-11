@@ -3,3 +3,11 @@
   height: 360px;
 
 }
+
+@media  (max-width: 767px) {
+  .banner {
+    background: image-url('logo_medium.png') center center no-repeat;
+    height: 167px;
+  }
+
+}
