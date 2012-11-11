@@ -1,84 +1,81 @@
 .row
-  .span12
-    .row
-      .span6
-        .contentsection
-          %p
-            Vancouver, BC based company founded in September 2012 by Ruy Diaz, a Software Developer with over
-            10 years professional experience, developing software for the web.
+  .span7.offset1
+    %p
+      Vancouver, BC based company founded in September 2012 by Ruy Diaz, a Software Developer with over
+      10 years professional experience, developing software for the web.
 
-          %p
-            With experience ranging from large multinational corporations such as
-            Ericsson Telecom and working with the largest cell phone carrier in Mexico,
-            to high traffic websites like
-            = link_to "Citymax.com", "http://citymax.com", target: '_blank'
-            and start-ups like
-            = link_to("Orbs.com", "http://orbs.com", target: '_blank') + "."
+    %p
+      With experience ranging from large multinational corporations such as
+      Ericsson Telecom and working with the largest cell phone carrier in Mexico,
+      to high traffic websites like
+      = link_to "Citymax.com", "http://citymax.com", target: '_blank'
+      and start-ups like
+      = link_to("Orbs.com", "http://orbs.com", target: '_blank') + "."
 
-          %p
-            Some of Ruy's pet projects include
-            = link_to "Splitsee", "http://www.splitsee.com", target: '_blank'
-            and
-            = link_to("You Can Get Me This", "http://www.youcangetmethis.com", target: '_blank') + "."
+    %p
+      Some of Ruy's pet projects include
+      = link_to "Splitsee", "http://www.splitsee.com", target: '_blank'
+      and
+      = link_to("You Can Get Me This", "http://www.youcangetmethis.com", target: '_blank') + "."
 
-          %p
-            Ruy has also contributed on #{ link_to "SammySays", "http://www.sammysays.com", target: "_blank" }
-            while contracting with #{link_to "Gastown Labs", "http://www.gastownlabs.com", target: "_blank"}, as
-            well as doing his part for open source and community service as an active member of
-            #{ link_to "Van.io", "http://van.io", target: "_blank"}.
+    %p
+      Ruy has also contributed on #{ link_to "SammySays", "http://www.sammysays.com", target: "_blank" }
+      while contracting with #{link_to "Gastown Labs", "http://www.gastownlabs.com", target: "_blank"}, as
+      well as doing his part for open source and community service as an active member of
+      #{ link_to "Van.io", "http://van.io", target: "_blank"}.
 
-          %p
-            Some of the technologies that Ruy has worked with include:
+    %p
+      Some of the technologies that Ruy has worked with include:
 
-            %ul#skills.accordion
-              %li Ruby
-              %li Ruby on Rails
-              %li.accordion-group
-                %span
-                  Javascript
-                  %a{data: {toggle: :collapse, parent: '#skills'}, href: '#skills-js'} (details)
-                %ul#skills-js.collapse
-                  %li jQuery
-                  %li jQuery Mobile
-                  %li Mootools
-                  %li Sencha Touch
-                  %li Prototype
-                  %li Coffeescript
-              %li HTML5
-              %li.accordion-group
-                %span
-                  CSS3
-                  %a{data: {toggle: :collapse, parent: '#skills'}, href: '#skills-css'} (details)
-                %ul#skills-css.collapse
-                  %li Bootstrap
-                  %li SASS
-                  %li SMACSS
-                  %li Compass
-              %li.accordion-group
-                %span
-                  Databases
-                  %a{data: {toggle: :collapse, parent: '#skills'}, href: '#skills-db'} (details)
-                %ul#skills-db.collapse
-                  %li MySQL
-                  %li PostgreSQL
-                  %li MongoDB (NoSQL)
-              %li.accordion-group
-                %span
-                  Test Driven Development
-                  %a{data: {toggle: :collapse, parent: '#skills'}, href: '#skills-tdd'} (details)
-                %ul#skills-tdd.collapse
-                  %li RSpec
-                  %li Cucumber
-                  %li Jasmine
-              %li Heroku
-              %li Flash (Flex 4)
-              %li Java
-      .span5
-        .media
-          = image_tag "http://www.gravatar.com/avatar/fd1925c8356bb0ece18731063b25141d?s=150", class: 'media-image'
-          .media-content
-            %ul.unstyled
-              %li= link_to "Stack Overflow", "http://stackoverflow.com/users/302246/ruy-diaz", target: '_blank'
-              %li= link_to "LinkedIn", "http://ca.linkedin.com/in/diazruy", target: '_blank'
-              %li= link_to "Twitter", "http://twitter.com/diazruy", target: '_blank'
-              %li= link_to "About.me", "http://about.me/ruydiaz", target: '_blank'
+      %ul#skills.accordion
+        %li Ruby
+        %li Ruby on Rails
+        %li.accordion-group
+          %span
+            Javascript
+            %a{data: {toggle: :collapse, parent: '#skills'}, href: '#skills-js'} (details)
+          %ul#skills-js.collapse
+            %li jQuery
+            %li jQuery Mobile
+            %li Mootools
+            %li Sencha Touch
+            %li Prototype
+            %li Coffeescript
+        %li HTML5
+        %li.accordion-group
+          %span
+            CSS3
+            %a{data: {toggle: :collapse, parent: '#skills'}, href: '#skills-css'} (details)
+          %ul#skills-css.collapse
+            %li Bootstrap
+            %li SASS
+            %li SMACSS
+            %li Compass
+        %li.accordion-group
+          %span
+            Databases
+            %a{data: {toggle: :collapse, parent: '#skills'}, href: '#skills-db'} (details)
+          %ul#skills-db.collapse
+            %li MySQL
+            %li PostgreSQL
+            %li MongoDB (NoSQL)
+        %li.accordion-group
+          %span
+            Test Driven Development
+            %a{data: {toggle: :collapse, parent: '#skills'}, href: '#skills-tdd'} (details)
+          %ul#skills-tdd.collapse
+            %li RSpec
+            %li Cucumber
+            %li Jasmine
+        %li Heroku
+        %li Flash (Flex 4)
+        %li Java
+  .span4
+    .media
+      = image_tag "http://www.gravatar.com/avatar/fd1925c8356bb0ece18731063b25141d?s=150", class: 'media-image'
+      .media-content
+        %ul.unstyled
+          %li= link_to "Stack Overflow", "http://stackoverflow.com/users/302246/ruy-diaz", target: '_blank'
+          %li= link_to "LinkedIn", "http://ca.linkedin.com/in/diazruy", target: '_blank'
+          %li= link_to "Twitter", "http://twitter.com/diazruy", target: '_blank'
+          %li= link_to "About.me", "http://about.me/ruydiaz", target: '_blank'

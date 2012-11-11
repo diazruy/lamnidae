@@ -35,32 +35,23 @@
 @import "bootstrap";
 
 body {
+  padding-top: 60px;
 }
+@import "bootstrap-responsive";
 
 h1, h2, h3 {
   font-family: 'BenchNine', sans-serif;
-  padding-top: 60px;
-}
-
-h1 {
-  text-align: center;
-  font-size: 60px;
-}
-
-h2 {
-  font-size: 300px;
-  font-weight: 700;
-  color: #F5F5F5;
-  position: absolute;
-  top: 90px;
-  z-index: -1;
 }
 
 section {
-  padding-top: 50px;
   position: relative;
 }
 
 .accordion-group {
   border: none;
+}
+
+.form-actions {
+  border: none;
+  background-color: transparent;
 }
