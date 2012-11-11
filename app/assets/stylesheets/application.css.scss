@@ -55,3 +55,11 @@ section {
   border: none;
   background-color: transparent;
 }
+
+a, a:visited {
+  color: $lamnidae-blue;
+}
+
+a:hover {
+  color: lighten($lamnidae-blue, 10%);
+}
