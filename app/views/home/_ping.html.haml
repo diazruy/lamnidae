@@ -6,9 +6,9 @@
       = simple_form_for ContactForm.new, remote: true, html: {class: 'contactform form-horizontal'} do |f|
         .alert.alert-success.success.hide
         .alert.alert-error.errors.hide
-        = f.input :name, input_html: {class: 'input-medium'}
-        = f.input :email, input_html: {class: 'input-medium'}
-        = f.input :message, as: :text, input_html: {class: 'input-large'}
+        = f.input :name, input_html: {class: 'span3'}
+        = f.input :email, input_html: {class: 'span3'}
+        = f.input :message, as: :text, input_html: {class: 'span6'}
         = f.input :nickname, wrapper_html: {class: 'hide'}
         .form-actions
           = f.button :submit, value: "Send", class: 'btn btn-primary'
