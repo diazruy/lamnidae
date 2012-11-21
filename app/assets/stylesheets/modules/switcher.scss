@@ -3,3 +3,10 @@
 .switcher-tab {
   @include min-height(590px);
 }
+
+@media (max-width: 979px) {
+  .switcher-tab {
+    @include min-height(300px);
+  }
+
+}
