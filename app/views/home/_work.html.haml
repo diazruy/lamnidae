@@ -3,142 +3,145 @@
     %p
       Some of my past and present clients include:
 
-%section
-  .row
-    .span10.offset1
-      %header
-        %h2
-          %a{href: 'http://gastownlabs.com', target: 'blank'} Gastown Labs
-  .row
-    .span5.offset1
+%section.client.row
+  .span5.offset1
+    %header
+      %h2
+        %a{href: 'http://gastownlabs.com', target: 'blank'} Gastown Labs
+    %p
+      While working with Gastown Labs, I contributed to the delivery
+      of key features and functionality of the following projects:
+    %ul.projects
+      %li
+        %header
+          %h3
+            %a{href: 'http://sammysays.com', target: '_blank'} Sammysays
+          %p.projects-tagline
+            SammySays is an online community bulletin board, a place where you can
+            easily post and find events happening in your neighborhood.
+        %p
+          Developed data import mechanisms to parse and filter events from multiple event sources
+          Added the administrative interfaces to quickly edit, vet and publish the imported events. Also
+          did general maintenance and bug fixes across the site, which had a strong focus on proper
+          cross-browser, cross-device availability of the website.
+      %li
+        %header
+          %h3
+            %a{href: 'http://supadupa.me', target: '_blank'} SupaDupa
+          %p.projects-tagline
+            SupaDupa is a simple but sophisticated store creator for creatives wanting to set
+            up &amp; customise their own beautiful online shop.
+        %p
+          Added an HTML5 based drag and drop graphical badge creator using KineticJS to allow store owners
+          to generate attractive badges of their products for social media publication. With the ability
+          to add different banners, borders and sale price, the store owner could then publish
+          the image to Facebook or Twitter.
+
+  .span3
+    = image_tag 'clients/gastownlabs/logo.png', class: 'client-logo'
+    %blockquote
       %p
-        While collaborating with Gastown Labs, I contributed to the delivery
-        of key features and functionality of the following projects:
-      %ul
-        %li
-          %header
-            %h3
-              %a{href: 'http://sammysays.com', target: '_blank'} Sammysays
-            %p SammySays is an online community bulletin board, a place where you can easily post and find events happening in your neighborhood.
-          %p
-            Developed data import mechanisms to parse and filter events from multiple event sources
-            Added the administrative interfaces to quickly edit, vet and publish the imported events. Also
-            did general maintenance and bug fixes across the site, which had a strong focus on proper
-            cross-browser, cross-device availability of the website.
-        %li
-          %header
-            %h3
-              %a{href: 'http://supadupa.me', target: '_blank'} SupaDupa
-            %p SupaDupa is a simple but sophisticated store creator for creatives wanting to set up & customise their own beautiful online shop
-          %p
-            Added an HTML5 based drag and drop graphical badge creator using KineticJS to allow store owners
-            to generate images of their products. With the ability to add different banners, borders and sale price,
-            the store owner could then publish the image to Facebook or Twitter.
+        blah, blah, blah
+      %footer
+        &mdash; Adam Maddox, CEO
 
-    .span2
-      %blockquote
+
+%section.client.row
+  .span5.offset1
+    %header
+      %h2.client-name
+        %a{href: 'http://www.habitstack.com', target: '_blank'} HabitStack
+      %p.client-tagline Coaching program for tech entrepreneurs.
+    %ul.projects
+      %li
+        %header
+          %h2
+            Momentum Management System
         %p
-          blah, blah, blah
-        %footer
-          &mdash; Adam Maddox, CEO
+          Worked closely with the founder, Scott Ward, to design and develop
+          habit tracking software, tailored to HabitStack's proprietary methodology.
+          Development involved end-to-end implementation of the Momentum Management System.
 
-
-%section
-  .row
-    .span10.offset1
-      %header
-        %h2
-          %a{href: 'http://www.habitstack.com', target: '_blank'} HabitStack
-        %p 12 month intensive coaching program.
-  .row
-    .span5.offset1
+  .span3
+    = image_tag 'clients/habitstack/logo.png', class: 'client-logo'
+    %blockquote
       %p
-        Worked closely with Scott Ward to design and develop habit tracking
-        software, tailored to his particular coaching style and methodologies.
-        Development involved end-to-end implementation of the Momentum Management System.
+        "Ruy has done excellent work for HabitStack. I've always been impressed
+        with his engineering skills and attention to detail. I regularly and confidently recommend
+        Ruy to people who need a developer they can trust to do things quickly and correctly."
+      %footer
+        &mdash; Scott Ward, CPCC, Founder
 
-    .span5
-      %blockquote
+%section.client.row
+  .span5.offset1
+    %header
+      %h2.client-name
+        %a{href: 'http://www.glaciermedia.ca', target: '_blank'} Glacier Media Group
+      %p.client-tagline
+        Information communications company focused on the provision of primary and
+        essential information and related services through print, electronic and online media
+    %ul.projects
+      %li
+        %header
+          %h2
+            %a{href: 'http://rew.ca', target: '_blank'} REW.ca
+          %p.projects-tagline
+            Online arm of the largest real estate market news paper
+            in the Lower Mainland: Real Estate Weekly.
         %p
-          "blah, blah, blah"
-        %footer
-          &mdash; Scott Ward, CPCC
+          In collaboration with a few other developers, I was responsible for
+          implementing the complete front-end of their new real estate portal.
+          This included integration with Google Maps API and Yelp, as well as
+          coordinating with the design team to transform Photoshop designs into
+          HTML/CSS reality. Also deeply involved in back end aspects of the site
+          including full-text searching, data import, administrative interfaces and
+          extensive involvement with code quality, testing, interviewing, and more.
 
-%section
-  .row
-    .span10.offset1
-      %header
-        %h2
-          %a{href: 'http://rew.ca', target: '_blank'} REW.ca
+  .span3
+    = image_tag 'clients/glacier/logo.png', class: 'client-logo'
+    %blockquote
+      %p
+        "blah, blah, blah"
+      %footer
+        &mdash; Allen Moon, Product Manager
+
+%section.client.row
+  .span5.offset1
+    %header
+      %h2
+        %a{href: 'http://tamton.ca', target: '_blank'} Tamton Training
+      %p.client-tagline Vancouver's premier technology training provider.
+    %ul.projects
+      %li
+        %header
+          %h3
+            %a{href: 'http://businessworx.avidworx.com/', target: '_blank'} Businessworx (formerly Priceworx) from Avidworx
+          %p.projects-tagline
+            Online tools to improve how you manage every aspect of your mobile audio and electronics business.
         %p
-          REW.ca is the online arm of the largest real estate market news paper
-          in the Lower Mainland: Real Estate Weekly.
-  .row
-    .span5.offset1
-      %ul
-        %li
-          %header
-            %h2
-              %a{href: 'http://rew.ca', target: '_blank'} REW.ca
-            %p
-              REW.ca is the online arm of the largest real estate market news paper
-              in the Lower Mainland: Real Estate Weekly.
-          %p
-            In coordination with a few other developers, I was responsible for
-            implementing the complete front-end of their new real estate portal.
-            This included integration with Google Maps API and Yelp, as well as
-            coordinating with the design team to transform Photoshop designs into
-            HTML/CSS reality. Also deeply involved in back end aspects of the site
-            including full-text searching, data import, administrative interfaces and
-            extensive involvement with code quality, testing, interviewing, and more.
-
-    .span5
-      %blockquote
+          Contributed to the project to upgrade to Rails 3, specifically in regards to Unobtrusive JavaScript (UJS).
+      %li
+        %header
+          %h3
+            Advanced Testing Course
         %p
-          "blah, blah, blah"
-        %footer
-          &mdash; Allen Moon
-
-%section
-  .row
-    .span10.offset1
-      %header
-        %h2
-          %a{href: 'http://tamton.ca', target: '_blank'} Tamton Training
-        %p Vancouver's premiere technology training provider.
-  .row
-    .span5.offset1
-
-      %ul
-        %li
-          %header
-            %h3
-              %a{href: 'http://businessworx.avidworx.com/', target: '_blank'} Priceworx (now Businessworx)
-            %p
-              Online tools to improve how you manage every aspect of your mobile audio and electronics business.
-          %p
-            Contributed to the project to upgrade to Rails 3, specifically in regards to Unobtrusive JavaScript (UJS).
-        %li
-          %header
-            %h3
-              Advanced Testing Course
-          %p
-            Developed and taught a full day advanced testing course at the premises of Sage, to 9
-            developers on-site and 5 remote attendants. Course covered both Ruby (RSpec) and JavaScript
-            (Jasmine) testing.
-        %li
-          %header
-            %h3
-              %a{href: 'http://codecore.ca', target: '_blank'} CodeCore
-            %p Intensive 8 week, full-time developer bootcamp.
-          %p
-            TODO
-
-    .span5
-      %blockquote
+          Developed and taught a full day advanced testing course at the premises of Sage, to 9
+          developers on-site and 5 remote attendants. Course covered both Ruby (RSpec) and JavaScript
+          (Jasmine) testing.
+      %li
+        %header
+          %h3
+            %a{href: 'http://codecore.ca', target: '_blank'} CodeCore
+          %p.client-tagline Intensive 8 week, full-time developer bootcamp.
         %p
-          "blah, blah, blah"
-        %footer
-          &mdash; Tammam Kbeili
+          TODO
+
+  .span3
+    = image_tag 'clients/tamton/logo.png', style: "background: #ca0d0f; padding: 5px;", class: 'client-logo'
+    %blockquote
+      %p
+        "blah, blah, blah"
+      %footer
+        &mdash; Tammam Kbeili, Co-Founder
 
 
