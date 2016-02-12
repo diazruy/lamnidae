@@ -1,19 +1,17 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+ruby '2.2.3'
 
 gem 'rails', '~> 3.2.17'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'pg'
-gem 'unicorn', '~> 4.7.0'
+gem 'pg', '~> 0.15.0'
+gem 'unicorn', '~> 4.9.0'
 gem 'rainbow'
 gem 'mail_form'
 gem 'simple_form'
-gem 'letter_opener'
-
 
 # Gems used only for assets and not required
 # in production environments by default.
