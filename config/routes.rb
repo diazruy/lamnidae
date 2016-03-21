@@ -2,6 +2,8 @@ Lamnidae::Application.routes.draw do
   resources :contact_forms, only: :create
 
   get "home/index"
+
+  get "epicure" => "epicure#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
