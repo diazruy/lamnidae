@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.0.0'
+ruby '2.1.5'
 
 gem 'rails', '~> 3.2.17'
 
@@ -12,8 +12,6 @@ gem 'unicorn', '~> 4.7.0'
 gem 'rainbow'
 gem 'mail_form'
 gem 'simple_form'
-gem 'letter_opener'
-
 
 # Gems used only for assets and not required
 # in production environments by default.
