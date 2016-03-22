@@ -9,9 +9,10 @@ gem 'rails', '~> 3.2.17'
 
 gem 'pg', '~> 0.15.0'
 gem 'unicorn', '~> 4.9.0'
-gem 'rainbow'
-gem 'mail_form'
-gem 'simple_form'
+gem 'rainbow', '~> 1.1.4'
+gem 'mail_form', '~> 1.3.0'
+gem 'simple_form', '~> 2.0.4'
+gem 'faraday', '~> 0.9.2', require: false
 
 # Gems used only for assets and not required
 # in production environments by default.
