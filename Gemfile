@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-ruby '2.2.3'
+ruby '2.3.0'
 
 gem 'rails', '~> 3.2.17'
 
@@ -44,6 +44,7 @@ gem 'html5-rails'
 # gem 'debugger'
 group :development, :test do
   gem 'rspec-rails'
+  gem 'test-unit'
 end
 
 group :development do
