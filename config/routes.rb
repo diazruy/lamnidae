@@ -3,7 +3,8 @@ Lamnidae::Application.routes.draw do
 
   get "home/index"
 
-  get "epicure" => "epicure#index"
+  get "epicure" => "epicure#index", as: :epicure
+  post "epicure" => "epicure#update", as: :update_epicure
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
