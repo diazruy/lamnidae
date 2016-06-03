@@ -30,23 +30,19 @@ module Insightly
       contactinfos = []
       contactinfos << {type: 'EMAIL', detail: epicure.email, label: 'Work'} if epicure.email.present?
       contactinfos << {type: 'PHONE', detail: epicure.phone, label: 'Work'} if epicure.phone.present?
-      addresses = []
-      if epicure.street.present?
-        addresses << {
+
+      {
+        first_name: epicure.first_name,
+        last_name: epicure.last_name,
+        contactinfos: contactinfos,
+        addresses: [{
           address_type: "Postal",
           street: epicure.street,
           city: epicure.city,
           state: epicure.province,
           postcode: epicure.postal_code,
           country: "CA"
-        }
-      end
-
-      {
-        first_name: epicure.first_name,
-        last_name: epicure.last_name,
-        contactinfos: contactinfos,
-        addresses: addresses
+        }]
       }
     end
   end

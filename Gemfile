@@ -46,6 +46,7 @@ gem 'html5-rails'
 group :development, :test do
   gem 'rspec-rails'
   gem 'test-unit'
+  gem 'byebug'
 end
 
 group :development do
