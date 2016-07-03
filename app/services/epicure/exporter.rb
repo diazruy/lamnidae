@@ -37,7 +37,7 @@ module Epicure
       return @customers if @customers
       page = 1
       @customers = []
-      while (customer_data = get_page(page)).size > 0 do
+      while (customer_data = get_page(page)).size > 0 && page < 10 do
         customer_data.each do |customer|
           @customers << Epicure::Customer.new(customer)
         end
@@ -50,19 +50,24 @@ module Epicure
 
     def get_page(page)
       params = {
-        'Page' => page,
-        'PerPage' => 50,
-        'Sort' => 1,
-        'Ascending' => true,
-        'Search' => ""
+        Page: page,
+        PerPage: 50,
+        Sort: 1,
+        Ascending: true,
+        Search: ""
       }
+      http = Net::HTTP.new(URI.host, URI.port)
+      http.use_ssl = true
+      http.verify_mode = OpenSSL::SSL::VERIFY_NONE
+
       req = Net::HTTP::Post.new(URI)
       req.body = params.to_json
-      res = Net::HTTP.start(URI.hostname, URI.port) do |http|
-        http.request(req)
-      end
+      req['Cookie'] = ENV['EPICURE_COOKIE']
+      req['RequestVerificationToken'] = ENV['EPICURE_TOKEN']
+      req.set_form_data(params)
+      res = http.request(req)
       json = JSON.parse(res.body)
-      customers = json['d']['Customers']
+      customers = json['Customers']
     end
   end
 end
