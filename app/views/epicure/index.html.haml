@@ -27,7 +27,29 @@
             = render partial: 'row', locals: {field: field, contact: contact, existing_contact: existing_contact}
           %td
             %input{type: :checkbox, name: 'contact[]', value: contact.email, checked: is_new }
-  %input{type: :submit, value: 'Submit'}
+  #epicureHelp.hidden
+    %ol
+      %li Log in to Epicure
+      %li
+        Go to
+        %a{href: 'https://www.myepicure.com/en-ca/ordering.aspx'} Orders
+      %li Go to Contacts
+      %li Right click and "Inspect"
+      %li Go to Network
+      %li Click on XHR
+      %li On the contact form, click "Filter" (or whatever)
+      %li In the Network output, find the GetCustomerRecords entry and copy Cookie and RequestVerificationToken
+  %fieldset
+    %label
+      Cookie
+      %i#epicureHelpTrigger.icon-question-sign
+    %input.input-large{name: :cookie, value: params[:cookie]}
+
+    %label RequestVerificationToken
+    %input.input-large{name: :token, value: params[:token]}
+
+  %fieldset
+    %input{type: :submit, value: 'Submit'}
 
 %table.epicure.table.table-striped
   %caption Insightly
@@ -45,6 +67,12 @@
           parents('form').
           find('tbody input[type=checkbox').
           prop('checked', $(this).prop('checked'))
+      })
+
+      $('#epicureHelpTrigger').popover({
+        html: true,
+        content: $('#epicureHelp').html(),
+        title: 'Instructions'
       })
     });
 

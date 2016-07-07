@@ -7,7 +7,7 @@ class EpicureController < ApplicationController
   end
 
   def update
-    emails = params[:contact]
+    emails = params[:contact] || []
     insightly_api
     insightly_contacts = insightly_api.contacts
     errors = []
@@ -29,7 +29,7 @@ class EpicureController < ApplicationController
       end
     end
     flash[:error] = errors.join("\n") if errors.present?
-    redirect_to epicure_url
+    redirect_to epicure_url(cookie: epicure_cookie, token: epicure_token)
   end
 
   private
@@ -38,8 +38,16 @@ class EpicureController < ApplicationController
     @insightly_api ||= Insightly::Importer.new
   end
 
+  def epicure_token
+    params[:token]
+  end
+
+  def epicure_cookie
+    params[:cookie]
+  end
+
   def epicure_api
-    @epicure_api ||= Epicure::Exporter.new
+    @epicure_api ||= Epicure::Exporter.new(epicure_cookie, epicure_token)
   end
 
   def authenticate

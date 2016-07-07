@@ -20,8 +20,11 @@ module Epicure
       ShippingInstructions
     }
 
-    def initialize
+    attr_reader :cookie, :token
 
+    def initialize(cookie, token)
+      @cookie = cookie
+      @token = token
     end
 
     def csv
@@ -62,12 +65,13 @@ module Epicure
 
       req = Net::HTTP::Post.new(URI)
       req.body = params.to_json
-      req['Cookie'] = ENV['EPICURE_COOKIE']
-      req['RequestVerificationToken'] = ENV['EPICURE_TOKEN']
+      req['Cookie'] = cookie
+      req['RequestVerificationToken'] = token
       req.set_form_data(params)
       res = http.request(req)
       json = JSON.parse(res.body)
-      customers = json['Customers']
+      puts json.inspect
+      customers = json['Customers'] || []
     end
   end
 end
