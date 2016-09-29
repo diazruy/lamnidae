@@ -41,16 +41,12 @@
       %li Go to Network
       %li Click on XHR
       %li On the contact form, click "Filter" (or whatever)
-      %li In the Network output, find the GetCustomerRecords entry and copy Cookie and RequestVerificationToken
+      %li In the Network output, find the GetCustomerRecords entry, right click it and select "Copy Request Headers"
   %fieldset
     %label
-      Cookie
+      Epicure Request Headers
       %i#epicureHelpTrigger.icon-question-sign
-    %input.input-large{name: :cookie, value: params[:cookie]}
-
-    %label RequestVerificationToken
-    %input.input-large{name: :token, value: params[:token]}
-
+    %textarea.input-block-level{name: :epicure_headers}= params[:epicure_headers]
   %fieldset
     %input{type: :submit, value: 'Submit'}
 

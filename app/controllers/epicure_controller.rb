@@ -29,7 +29,7 @@ class EpicureController < ApplicationController
       end
     end
     flash[:error] = errors.join("\n") if errors.present?
-    redirect_to epicure_url(cookie: epicure_cookie, token: epicure_token)
+    redirect_to epicure_url(epicure_headers: params[:epicure_headers])
   end
 
   private
@@ -39,11 +39,19 @@ class EpicureController < ApplicationController
   end
 
   def epicure_token
-    params[:token]
+    epicure_header('RequestVerificationToken')
   end
 
   def epicure_cookie
-    params[:cookie]
+    epicure_header('Cookie')
+  end
+
+  def epicure_header(name)
+    return nil unless params[:epicure_headers].present?
+    token_line = params[:epicure_headers].split("\n").find {|line| line.starts_with?(name) }
+    parts = token_line.split(' ')
+    parts.shift
+    parts.join(' ')
   end
 
   def epicure_api
