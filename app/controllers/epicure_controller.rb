@@ -8,24 +8,21 @@ class EpicureController < ApplicationController
 
   def update
     emails = params[:contact] || []
-    insightly_api
     insightly_contacts = insightly_api.contacts
+    epicure_customers = epicure_api.customers
     errors = []
-    epicure_api.customers.each do |epicure|
-      if emails.include?(epicure.email)
-        if insightly = insightly_contacts.find {|contact| contact.email == epicure.email}
-          begin
-            insightly_api.update(insightly.contact_id, epicure)
-          rescue Insightly2::Errors::ClientError => e
-            errors << [epicure.email, e.response.body].join(': ')
-          end
+    emails.each do |email|
+      epicure = epicure_customers.find {|customer| customer.email == email}
+      insightly = insightly_contacts.find {|contact| contact.email == epicure.email}
+
+      begin
+        if insightly.present?
+          insightly_api.update(insightly.contact_id, epicure)
         else
-          begin
-            insightly_api.create(epicure)
-          rescue Insightly2::Errors::ClientError => e
-            errors << [epicure.email, e.response.body].join(': ')
-          end
+          insightly_api.create(epicure)
         end
+      rescue Insightly2::Errors::ClientError => e
+        errors << [epicure.email, e.response.body].join(': ')
       end
     end
     flash[:error] = errors.join("\n") if errors.present?
