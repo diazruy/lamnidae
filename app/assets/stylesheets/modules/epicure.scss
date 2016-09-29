@@ -18,4 +18,10 @@
       background-color: #a1d490;
     }
   }
+
+  &.is-diff-only {
+    .is-up-to-date {
+      display: none;
+    }
+  }
 }

@@ -1,5 +1,8 @@
 = form_for :contact, url: update_epicure_path do |f|
-  %table.epicure.table
+  .btn-group{data: {toggle: 'buttons-radio'}}
+    %button#showDiff.btn.btn-primary.active{type: 'button'} Show different
+    %button#showAll.btn.btn-primary{type: 'button'} Show all
+  %table#epicure.epicure.table.is-diff-only
     %caption Epicure
     %thead
       %tr
@@ -22,7 +25,7 @@
         - existing_contact = @insightly_contacts.find {|c| c.email == contact.email}
         - is_new = existing_contact.blank?
         - is_updated = existing_contact && (existing_contact != contact)
-        %tr{class: (is_new ? 'is-new' :  ( is_updated ? 'is-updated' : ''))}
+        %tr{class: (is_new ? 'is-new' :  ( is_updated ? 'is-updated' : 'is-up-to-date'))}
           - %i{first_name last_name email phone street city province country postal_code}.each do |field|
             = render partial: 'row', locals: {field: field, contact: contact, existing_contact: existing_contact}
           %td
@@ -62,17 +65,26 @@
 - content_for :javascript do
   :javascript
     $(function(){
+      $("data[toggle='buttons-radio']").button();
       $('#selectAll').on('change', function(){
         $(this).
           parents('form').
           find('tbody input[type=checkbox').
           prop('checked', $(this).prop('checked'))
-      })
+      });
 
       $('#epicureHelpTrigger').popover({
         html: true,
         content: $('#epicureHelp').html(),
         title: 'Instructions'
-      })
+      });
+
+      $('#showAll').click(function(){
+        $('#epicure').removeClass('is-diff-only');
+      });
+
+      $('#showDiff').click(function(){
+        $('#epicure').addClass('is-diff-only');
+      });
     });
 

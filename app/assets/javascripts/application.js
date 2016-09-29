@@ -17,6 +17,7 @@
 //= require bootstrap-collapse
 //= require bootstrap-tooltip
 //= require bootstrap-popover
+//= require bootstrap-button
 //= require_tree './widgets'
 //= require contact_form
 
