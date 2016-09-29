@@ -70,7 +70,6 @@ module Epicure
       req.set_form_data(params)
       res = http.request(req)
       json = JSON.parse(res.body)
-      puts json.inspect
       customers = json['Customers'] || []
     end
   end
