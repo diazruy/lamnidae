@@ -17,4 +17,17 @@ ActiveAdmin.register User do
     end
     f.actions
   end
+
+  show do
+    attributes_table do
+      row :email
+      row :sign_in_count
+      row :last_sign_in_at
+      row :created_at
+      row :integrations do
+        link_to "View", admin_user_integration_keys_path(user)
+      end
+    end
+
+  end
 end
