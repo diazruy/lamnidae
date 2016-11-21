@@ -30,6 +30,7 @@ end
 gem 'haml-rails'
 gem 'jquery-rails'
 gem 'html5-rails'
+gem 'test-unit' # Heroku complains without it when running console
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -47,7 +48,6 @@ gem 'html5-rails'
 # gem 'debugger'
 group :development, :test do
   gem 'rspec-rails'
-  gem 'test-unit'
   gem 'byebug'
 end
 
