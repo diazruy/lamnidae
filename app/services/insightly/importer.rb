@@ -4,8 +4,7 @@ module Insightly
 
     attr_reader :client
     def initialize(api_key)
-      Insightly2.api_key = api_key
-      @client = Insightly2.client
+      @client = Insightly2::Client.new(api_key)
     end
 
     def contacts
