@@ -13,6 +13,7 @@ gem 'rainbow'
 gem 'mail_form'
 gem 'simple_form'
 gem 'insightly2', github: 'diazruy/insightly-ruby', branch: 'remove-ror4-dependency' # Epicure client export
+gem 'devise'
 
 # Gems used only for assets and not required
 # in production environments by default.

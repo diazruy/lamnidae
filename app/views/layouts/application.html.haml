@@ -8,7 +8,9 @@
     = render "header"
 
     .container
-      = render "flashes"
+      - flash.keys.each do |type|
+        .alert{class: "alert-#{type}"}= flash[type]
+
       = yield
 
     = render "footer"

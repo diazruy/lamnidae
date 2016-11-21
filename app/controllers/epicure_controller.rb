@@ -1,5 +1,5 @@
 class EpicureController < ApplicationController
-  before_filter :authenticate
+  before_filter :authenticate_user!
 
   def index
     @epicure_customers = epicure_api.customers
@@ -53,15 +53,5 @@ class EpicureController < ApplicationController
 
   def epicure_api
     @epicure_api ||= Epicure::Exporter.new(epicure_cookie, epicure_token)
-  end
-
-  def authenticate
-    authentication = authenticate_with_http_basic do |u, p|
-      creds = ENV['BASIC_AUTH'].split(':')
-      [u, p] == creds
-    end
-    unless authentication
-      request_http_basic_authentication
-    end
   end
 end

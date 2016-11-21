@@ -1,4 +1,6 @@
 Lamnidae::Application.routes.draw do
+  devise_for :users
+
   resources :contact_forms, only: :create
 
   get "home/index"
