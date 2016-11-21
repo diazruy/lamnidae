@@ -32,7 +32,7 @@ class EpicureController < ApplicationController
   private
 
   def insightly_api
-    @insightly_api ||= Insightly::Importer.new
+    @insightly_api ||= Insightly::Importer.new(current_user.integration_keys.insightly)
   end
 
   def epicure_token

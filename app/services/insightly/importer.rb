@@ -3,8 +3,8 @@ module Insightly
   class Importer
 
     attr_reader :client
-    def initialize
-      Insightly2.api_key = ENV['INSIGHTLY_API_KEY']
+    def initialize(api_key)
+      Insightly2.api_key = api_key
       @client = Insightly2.client
     end
 
