@@ -3,10 +3,18 @@
     .container
       .brand
         .logo
-      %ul.nav
-        %li.active= link_to 'What', '#home', class: 'switcher'
-        %li= link_to 'How', '#how', class: 'switcher'
-        %li= link_to "Who", '#who', class: 'switcher'
-        %li= link_to "Work", '#work', class: 'switcher'
-        %li= link_to "Ping", '#ping', class: 'switcher'
+      - unless current_user.present?
+        %ul.nav
+          %li.active= link_to 'What', '#home', class: 'switcher'
+          %li= link_to 'How', '#how', class: 'switcher'
+          %li= link_to "Who", '#who', class: 'switcher'
+          %li= link_to "Work", '#work', class: 'switcher'
+          %li= link_to "Ping", '#ping', class: 'switcher'
+
+      %ul.nav.pull-right
+        - if current_user
+          %li= link_to 'Account', edit_user_registration_path
+          %li= link_to 'Sign Out', destroy_user_session_path, method: :delete
+        - else
+          %li= link_to 'Sign In', new_user_session_path
 
