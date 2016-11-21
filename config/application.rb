@@ -71,5 +71,7 @@ module Lamnidae
 
 
     config.assets.initialize_on_precompile = false
+    config.assets.precompile += %w[active_admin.css active_admin.js print.css]
+    config.assets.precompile += %w[active_admin/print.css]
   end
 end
