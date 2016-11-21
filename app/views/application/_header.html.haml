@@ -3,8 +3,10 @@
     .container
       .brand
         .logo
-      - unless current_user.present?
-        %ul.nav
+      %ul.nav
+        - if current_user
+          %li= link_to 'Epicure', epicure_path
+        - unless current_user.present?
           %li.active= link_to 'What', '#home', class: 'switcher'
           %li= link_to 'How', '#how', class: 'switcher'
           %li= link_to "Who", '#who', class: 'switcher'

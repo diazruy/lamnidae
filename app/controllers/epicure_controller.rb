@@ -4,6 +4,9 @@ class EpicureController < ApplicationController
   def index
     @epicure_customers = epicure_api.customers
     @insightly_contacts = insightly_api.contacts
+  rescue Insightly2::Errors::ClientError => e
+    flash[:error] = "Invalid Insightly API Key"
+    redirect_to edit_user_registration_url
   end
 
   def update
