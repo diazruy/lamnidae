@@ -40,7 +40,7 @@ module Insightly
           city: epicure.city,
           state: epicure.province,
           postcode: epicure.postal_code,
-          country: "CA"
+          country: "Canada"
         }]
       }
     end
