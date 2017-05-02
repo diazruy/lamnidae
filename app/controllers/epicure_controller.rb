@@ -16,11 +16,12 @@ class EpicureController < ApplicationController
     errors = []
     emails.each do |email|
       epicure = epicure_customers.find {|customer| customer.email == email}
+      next unless epicure.email
       insightly = insightly_contacts.find {|contact| contact.email == epicure.email}
 
       begin
         if insightly.present?
-          insightly_api.update(insightly.contact_id, epicure)
+          insightly_api.update(insightly, epicure)
         else
           insightly_api.create(epicure)
         end

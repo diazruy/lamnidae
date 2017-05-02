@@ -23,9 +23,16 @@ module Insightly
     def_delegators :data, :first_name, :last_name, :contact_id
 
     def address(field)
-      @address ||= data.addresses.first
-      value = @address && @address[field]
+      value = first_address && first_address[field]
       value.blank? ? nil : value
+    end
+
+    def address_id
+      first_address.try :[], 'address_id'
+    end
+
+    def first_address
+      @address ||= data.addresses.first
     end
 
     def street
@@ -60,10 +67,18 @@ module Insightly
     end
 
     def contact_info(type)
+      contact_info_raw(type).try(:[], 'detail')
+    end
+
+    def contact_info_id(type)
+      contact_info_raw(type.downcase).try(:[], 'contact_info_id')
+    end
+
+    def contact_info_raw(type)
       @contact_info ||= data.contactinfos
       @contact_info.find do |info|
         info['type'] == type.upcase
-      end.try(:[], 'detail')
+      end
     end
 
     def ==(customer)

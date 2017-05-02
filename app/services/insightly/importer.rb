@@ -1,4 +1,6 @@
+require './lib/monkey_patch/hash'
 require 'insightly2'
+
 module Insightly
   class Importer
 
@@ -13,10 +15,17 @@ module Insightly
       end
     end
 
-    def update(id, epicure)
-      client.update_contact(contact: contact_attributes(epicure).merge(
-        contact_id: id
-      ))
+    def update(contact, epicure)
+      contact_data = contact_attributes(epicure).merge(
+        contact_id: contact.contact_id
+      )
+      contact_data[:contactinfos].each do |ci|
+        type = ci[:type]
+        id = contact.contact_info_id(type)
+        ci[:contact_info_id] = id if id
+      end
+      contact_data[:addresses][0][:address_id] = contact.address_id if contact.address_id
+      client.update_contact(contact: contact_data)
     end
 
     def create(epicure)
@@ -27,8 +36,20 @@ module Insightly
 
     def contact_attributes(epicure)
       contactinfos = []
-      contactinfos << {type: 'EMAIL', detail: epicure.email, label: 'Work'} if epicure.email.present?
-      contactinfos << {type: 'PHONE', detail: epicure.phone, label: 'Work'} if epicure.phone.present?
+      if epicure.email.present?
+        contactinfos << {
+          type: 'EMAIL',
+          detail: epicure.email,
+          label: 'Work'
+        }
+      end
+      if epicure.phone.present?
+        contactinfos << {
+          type: 'PHONE',
+          detail: epicure.phone,
+          label: 'Work'
+        }
+      end
 
       {
         first_name: epicure.first_name,
