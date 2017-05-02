@@ -2,7 +2,7 @@
   .span7.offset1
     %p
       Vancouver, BC based company founded in September 2012 by Ruy Diaz, a Software Developer with over
-      10 years professional experience, developing software for the web.
+      #{Time.now.year - 2001} years professional experience, developing software for the web.
 
     %p
       With experience ranging from large multinational corporations such as
@@ -16,7 +16,7 @@
       Some of Ruy's pet projects include
       = link_to "Splitsee", "http://www.splitsee.com", target: '_blank'
       and
-      = link_to("You Can Get Me This", "http://www.youcangetmethis.com", target: '_blank') + "."
+      = link_to("Dabodo", "http://www.dabodo.com", target: '_blank') + "."
 
     %p
       Ruy has done his part for open source and community service as an active member of
@@ -40,6 +40,7 @@
             %li Sencha Touch
             %li Prototype
             %li Coffeescript
+            %li Angular
         %li HTML5
         %li.accordion-group
           %span
@@ -55,8 +56,8 @@
             Databases
             %a{data: {toggle: :collapse, parent: '#skills'}, href: '#skills-db'} (details)
           %ul#skills-db.collapse
-            %li MySQL
             %li PostgreSQL
+            %li MySQL
             %li MongoDB (NoSQL)
         %li.accordion-group
           %span
