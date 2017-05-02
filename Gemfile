@@ -12,7 +12,7 @@ gem 'unicorn', '~> 4.9.0'
 gem 'rainbow'
 gem 'mail_form'
 gem 'simple_form'
-gem 'insightly2', github: 'diazruy/insightly-ruby', branch: 'remove-ror4-dependency' # Epicure client export
+gem 'insightly2', github: 'insightly/insightly-ruby' # Monkey patched Hash to remove RoR4 depencency
 gem 'activeadmin'
 gem 'devise'
 
