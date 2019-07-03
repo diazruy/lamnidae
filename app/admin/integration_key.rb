@@ -9,7 +9,7 @@ ActiveAdmin.register IntegrationKey do
 
   form do |f|
     f.inputs do
-      f.input :source, collection: [:insightly]
+      f.input :source
       f.input :key
     end
     f.actions

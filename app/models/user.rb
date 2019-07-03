@@ -8,11 +8,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :remember_me, :integration_keys_attributes
   # attr_accessible :title, :body
 
-  has_many :integration_keys, uniq: :source, dependent: :destroy do
-    def insightly
-      find_by_source(:insightly).try :key
-    end
-  end
+  has_many :integration_keys, uniq: :source, dependent: :destroy
 
   accepts_nested_attributes_for :integration_keys
 end

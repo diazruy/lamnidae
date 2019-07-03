@@ -14,9 +14,6 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # GET /resource/edit
   def edit
-    unless @user.integration_keys.insightly
-      @user.integration_keys.build(source: :insightly)
-    end
     super
   end
 
