@@ -1,9 +1,0 @@
-@import "compass/typography/lists/bullets";
-
-.projects {
-  @include no-bullets();
-}
-
-.projects-tagline {
-  font-style: italic;
-}
