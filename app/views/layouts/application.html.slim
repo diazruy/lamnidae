@@ -30,6 +30,19 @@ html lang="en"
     /[if lt IE 9]
       script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"
       script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"
+
+    javascript:
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-33635413-1']);
+      _gaq.push(['_setDomainName', 'lamnidaeconsulting.com']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
   body class=controller.controller_name data-target='.navbar'
     = render 'header'
 
