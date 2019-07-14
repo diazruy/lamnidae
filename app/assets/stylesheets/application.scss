@@ -1,2 +1,37 @@
-@import "bootstrap-sprockets";
+@import "variables";
+@import "modules/all";
 @import "bootstrap";
+
+body {
+  padding-top: 60px;
+}
+@import "bootstrap-responsive";
+
+h1, h2, h3 {
+  font-family: 'BenchNine', sans-serif;
+}
+
+section {
+  position: relative;
+}
+
+.accordion-group {
+  border: none;
+}
+
+.form-actions {
+  border: none;
+  background-color: transparent;
+}
+
+a, a:visited {
+  color: $lamnidae-blue;
+}
+
+a:hover {
+  color: lighten($lamnidae-blue, 10%);
+}
+
+.popover {
+  width: 450px;
+}

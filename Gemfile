@@ -10,7 +10,7 @@ gem 'pg', '>= 0.18', '< 2.0'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
-gem 'sassc-rails', '>= 2.1.0'
+gem 'sass-rails'#, '>= 5.0.7'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -27,8 +27,11 @@ gem 'jbuilder', '~> 2.5'
 gem 'slim'
 gem 'slim-rails'
 
+# CSS helpers
+gem 'compass-rails', '~> 3.0.1'
+
 # Bootstrap framework
-gem 'bootstrap-sass', '~> 3.4.1'
+gem 'bootstrap-sass', '~> 2.3'
 
 # jQuery
 gem 'jquery-rails'
@@ -38,6 +41,12 @@ gem 'dotenv-rails', groups: [:development, :test]
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
+
+# Form generation
+gem 'simple_form', '~> 4'
+
+# Send forms by mail
+gem 'mail_form'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

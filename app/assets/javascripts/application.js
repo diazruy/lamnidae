@@ -11,6 +11,11 @@
 // about supported directives.
 //
 //= require jquery
-//= require bootstrap-sprockets
+//= require bootstrap-transition
+//= require bootstrap-collapse
+//= require bootstrap-tooltip
+//= require bootstrap-popover
+//= require bootstrap-button
 //= require rails-ujs
-//= require_tree .
+//= require_tree './widgets'
+//= require contact_form

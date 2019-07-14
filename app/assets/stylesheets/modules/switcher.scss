@@ -1,0 +1,10 @@
+.switcher-tab {
+  min-height: 590px;
+}
+
+@media (max-width: 979px) {
+  .switcher-tab {
+    min-height: 300px;
+  }
+
+}
