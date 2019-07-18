@@ -1,16 +1,16 @@
 .row
-  .span12
-    section.switcher-tab#home
+  .col-md-12.tab-content
+    section.tab-pane.active#home
       .content= render 'what'
-    section.switcher-tab.hide#how
+    section.tab-pane#how
       h2.cardtitle HOW
       .content= render 'how'
-    section.switcher-tab.hide#who
+    section.tab-pane#who
       h2.cardtitle WHO
       .content= render 'who'
-    section.switcher-tab.hide#work
+    section.tab-pane#work
       h2.cardtitle WORK
       .content= render 'work'
-    section.switcher-tab.hide#ping
+    section.tab-pane#ping
       h2.cardtitle PING
       .content= render 'ping'

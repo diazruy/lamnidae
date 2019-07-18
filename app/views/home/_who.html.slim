@@ -1,5 +1,5 @@
 .row
-  .span7.offset1
+  .col-md-7.col-md-offset-1
     p
       | Vancouver, BC based company founded in September 2012 by Ruy Diaz, a Software Developer with over
         #{Time.now.year - 2001} years professional experience, developing software for the web.
@@ -26,13 +26,12 @@
     p
       | Some of the technologies that Ruy has worked with include:
 
-      ul#skills.accordion
+      ul#skills
         li Ruby
         li Ruby on Rails
-        li.accordion-group
-          span
-            ' Javascript
-            a*{data: {toggle: :collapse, parent: '#skills'}, href: '#skills-js'} (details)
+        li
+          ' Javascript
+          a*{data: {toggle: :collapse, parent: '#skills'}, href: '#skills-js'} (details)
           ul#skills-js.collapse
             li jQuery
             li jQuery Mobile
@@ -42,39 +41,36 @@
             li Coffeescript
             li Angular
         li HTML5
-        li.accordion-group
-          span
-            ' CSS3
-            a*{data: {toggle: :collapse, parent: '#skills'}, href: '#skills-css'} (details)
-          ul#skills-css.collapse
+        li
+          ' CSS3
+          a*{data: {toggle: :collapse, parent: '#skills'}, href: '#skills-css'} (details)
+          ul#skills-css.collapse.list-unstyled
             li Bootstrap
             li SASS
             li SMACSS
             li Compass
-        li.accordion-group
-          span
-            ' Databases
-            a*{data: {toggle: :collapse, parent: '#skills'}, href: '#skills-db'} (details)
-          ul#skills-db.collapse
+        li
+          ' Databases
+          a*{data: {toggle: :collapse, parent: '#skills'}, href: '#skills-db'} (details)
+          ul#skills-db.collapse.list-unstyled
             li PostgreSQL
             li MySQL
             li MongoDB (NoSQL)
-        li.accordion-group
-          span
-            ' Test Driven Development
-            a*{data: {toggle: :collapse, parent: '#skills'}, href: '#skills-tdd'} (details)
-          ul#skills-tdd.collapse
+        li
+          ' Test Driven Development
+          a*{data: {toggle: :collapse, parent: '#skills'}, href: '#skills-tdd'} (details)
+          ul#skills-tdd.collapse.list-unstyled
             li RSpec
             li Cucumber
             li Jasmine
         li Heroku
         li Flash (Flex 4)
         li Java
-  .span4
+  .col-md-4
     .media
       = image_tag "http://www.gravatar.com/avatar/fd1925c8356bb0ece18731063b25141d?s=150", class: 'media-image'
       .media-content
-        ul.unstyled
+        ul.list-unstyled
           li= link_to "Stack Overflow", "http://stackoverflow.com/users/302246/ruy-diaz", target: '_blank'
           li= link_to "LinkedIn", "http://ca.linkedin.com/in/diazruy", target: '_blank'
           li= link_to "Twitter", "http://twitter.com/diazruy", target: '_blank'

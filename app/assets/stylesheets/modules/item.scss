@@ -1,23 +1,18 @@
+$title-width: 200px;
 .item {
   margin-bottom: 40px;
-}
+  &-title {
+    & > h3 {
+      text-align: right;
+      font-size: 50px;
 
-$title-width: 200px;
-.item-title {
-
-  & > h3 {
-    text-align: right;
-    font-size: 50px;
-  }
-}
-
-.item-content {
-  float: left;
-}
-
-@media  (max-width: 767px) {
-  .item-title > h3 {
-    text-align: left;
+      @media  (max-width: 767px) {
+        text-align: left;
+      }
+    }
   }
 
+  &-content {
+    float: left;
+  }
 }

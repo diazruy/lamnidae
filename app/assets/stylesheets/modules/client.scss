@@ -9,16 +9,18 @@
       font-size: 12px;
     }
   }
+
+  &-name {
+    margin-bottom: 5px;
+  }
+
+  &-tagline {
+    font-style: italic;
+  }
+
+  &-logo {
+    margin-bottom: 10px;
+    width: 100%;
+  }
 }
 
-.client-name {
-  margin-bottom: 5px;
-}
-
-.client-tagline {
-  font-style: italic;
-}
-
-.client-logo {
-  margin-bottom: 10px;
-}

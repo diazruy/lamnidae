@@ -1,12 +1,12 @@
-nav.navbar.navbar-fixed-top
-  .navbar-inner
-    .container
-      .brand
+nav.navbar.navbar-default.navbar-fixed-top
+  .container-fluid
+    .navbar-header
+      .navbar-brand
         .logo
-      ul.nav
-        li.active= link_to 'What', '#home', class: 'switcher'
-        li= link_to 'How', '#how', class: 'switcher'
-        li= link_to "Who", '#who', class: 'switcher'
-        li= link_to "Work", '#work', class: 'switcher'
-        li= link_to "Ping", '#ping', class: 'switcher'
+    ul#tabs.nav.navbar-nav
+      li.active data-toggle='tab' = link_to 'What', '#home'
+      li data-toggle='tab' = link_to 'How', '#how'
+      li data-toggle='tab' = link_to "Who", '#who'
+      li data-toggle='tab' = link_to "Work", '#work'
+      li data-toggle='tab' = link_to "Ping", '#ping'
 
