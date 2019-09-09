@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $ ->
-  $form = $('form.contactform')
+  $form = $('#contactform')
   $feedbackContainer = $form.find('[data-feedback]')
 
   $form.on 'submit', (event, data, status, xhr) ->

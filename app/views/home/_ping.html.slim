@@ -3,7 +3,7 @@
     .contentsection
       p Have an awesome idea? Need some extra brainpower? Drop me a line.
       p
-      = simple_form_for ContactForm.new, remote: true, html: {class: 'contactform form-horizontal'} do |f|
+      = simple_form_for ContactForm.new, remote: true, html: {id: 'contactform'} do |f|
         .row
           .col-sm-3
             = f.input :name
