@@ -2,19 +2,30 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $ ->
-  $('form.contactform').on 'submit', (event, data, status, xhr) ->
-    $(@).find('.errors').empty().slideUp()
+  $form = $('form.contactform')
+  $feedbackContainer = $form.find('[data-feedback]')
 
-  $('form.contactform').on 'ajax:success', (event) ->
+  $form.on 'submit', (event, data, status, xhr) ->
+    $feedbackContainer.empty()
+
+  $form.on 'ajax:success', (event) ->
     [data, status, xhr] = event.detail
-    $('.success').html(data.message).slideDown()
+    $alert =$('<div>',
+      class: 'alert alert-success',
+      text: data.message
+    ).css 'display', 'none'
+    $feedbackContainer.append($alert)
+    $alert.slideDown()
 
-  $('form.contactform').on 'ajax:error', (event) ->
+  $form.on 'ajax:error', (event) ->
     [data, status, xhr] = event.detail
     responseObject = $.parseJSON(xhr.responseText)
-    errors = $('<ul />')
+    $errors = $('<div>',
+      class: 'alert alert-warning'
+    ).css('display', 'none')
 
-    $.each responseObject.errors, (index, value) ->
-      errors.append('<li>' + value + '</li>')
+    $list = $('<ul/>')
+    $list.append("<li>#{error}</li>") for error in responseObject.errors
 
-    $(@).find('.errors').html(errors).slideDown();
+    $feedbackContainer.append($errors.append($list))
+    $errors.slideDown()
