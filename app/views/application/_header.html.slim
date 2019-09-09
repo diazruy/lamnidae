@@ -1,12 +1,18 @@
 nav.navbar.navbar-default.navbar-fixed-top
   .container-fluid
     .navbar-header
+      button.navbar-toggle.collapsed type="button" data-toggle="collapse" data-target="#nav" aria-expanded="false"
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
       .navbar-brand
         .logo
-    ul#tabs.nav.navbar-nav
-      li.active data-toggle='tab' = link_to 'What', '#home'
-      li data-toggle='tab' = link_to 'How', '#how'
-      li data-toggle='tab' = link_to "Who", '#who'
-      li data-toggle='tab' = link_to "Work", '#work'
-      li data-toggle='tab' = link_to "Ping", '#ping'
+    #nav.collapse.navbar-collapse
+      ul#tabs.nav.navbar-nav
+        li.active data-toggle='tab' = link_to 'What', '#home'
+        li data-toggle='tab' = link_to 'How', '#how'
+        li data-toggle='tab' = link_to "Who", '#who'
+        li data-toggle='tab' = link_to "Work", '#work'
+        li data-toggle='tab' = link_to "Ping", '#ping'
 
