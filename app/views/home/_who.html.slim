@@ -27,45 +27,59 @@
       | Some of the technologies that Ruy has worked with include:
 
       ul#skills
-        li Ruby
-        li Ruby on Rails
+        li data={skills: {from: '2008-07-01', category: 'Languages'}} Ruby
+        li data={skills: {from: '2011-10-01', category: 'Languages'}} Ruby on Rails
         li
           ' Javascript
           a*{data: {toggle: :collapse, parent: '#skills'}, href: '#skills-js'} (details)
           ul#skills-js.collapse
-            li jQuery
-            li jQuery Mobile
-            li Mootools
-            li Sencha Touch
-            li Prototype
-            li Coffeescript
-            li Angular
+            li data={skills: {from: '2011-09-01', category: 'Javascript'}} jQuery
+            li data={skills: {from: '2008-06-01', to: '2011-09-01', category: 'Javascript'}} Mootools
+            li data={skills: {from: '2006-03-01', to: '2008-06-08', category: 'Javascript'}} Prototype
+            li data={skills: {from: '2011-10-01', category: 'Javascript'}} Coffeescript
+            li data={skills: {from: '2014-03-01', to: '2019-02-01', category: 'Javascript'}} Angular
+            li data={skills: {from: '2019-02-01', category: 'Javascript'}} Vue
+            li data={skills: {from: '2012-08-01', category: 'Javascript'}} Google Maps API
         li HTML5
         li
           ' CSS3
           a*{data: {toggle: :collapse, parent: '#skills'}, href: '#skills-css'} (details)
-          ul#skills-css.collapse.list-unstyled
-            li Bootstrap
-            li SASS
-            li SMACSS
-            li Compass
+          ul#skills-css.collapse
+            li data={skills: {from: '2012-08-01', category: 'CSS'}} Bootstrap
+            li data={skills: {from: '2011-10-01', category: 'CSS'}} SASS
+            li data={skills: {from: '2012-06-01', category: 'CSS'}} SMACSS
+            li data={skills: {from: '2011-10-01', category: 'CSS'}} Compass
         li
           ' Databases
           a*{data: {toggle: :collapse, parent: '#skills'}, href: '#skills-db'} (details)
-          ul#skills-db.collapse.list-unstyled
-            li PostgreSQL
-            li MySQL
-            li MongoDB (NoSQL)
+          ul#skills-db.collapse
+            li data={skills: {from: '2012-08-01', category: 'DB'}} Solr
+            li data={skills: {from: '2012-08-01', category: 'DB'}} PostgreSQL
+            li data={skills: {from: '2001-02-01', to: '2012-06-01', category: 'DB'}} MySQL
+            li data={skills: {from: '2010-01-01', to: '2011-09-01', category: 'DB'}} MongoDB (NoSQL)
+            li data={skills: {from: '2001-02-01', to: '2004-03-01', category: 'DB'}} Oracle
+            li data={skills: {from: '2011-10-01', category: 'DB'}} Redis
+            li data={skills: {from: '2011-10-01', to: '2012-06-01', category: 'DB'}} Sphinx
         li
           ' Test Driven Development
           a*{data: {toggle: :collapse, parent: '#skills'}, href: '#skills-tdd'} (details)
-          ul#skills-tdd.collapse.list-unstyled
-            li RSpec
-            li Cucumber
-            li Jasmine
-        li Heroku
-        li Flash (Flex 4)
-        li Java
+          ul#skills-tdd.collapse
+            li data={skills: {from: '2011-10-01', category: 'Testing'}} RSpec
+            li data={skills: {from: '2008-06-01', to: '2018-03-01', category: 'Testing'}} Jasmine
+        li
+          ' Version Control
+          a*{data: {toggle: :collapse, parent: '#skills'}, href: '#skills-vcs'} (details)
+          ul#skills-vcs.collapse
+            li data={skills: {from: '2008-06-01', category: 'Version Control'}} Git
+            li data={skills: {from: '2006-03-01', to: '2007-03-01', category: 'Version Control'}} Subversion
+            li data={skills: {from: '2007-03-01', to: '2008-06-01', category: 'Version Control'}} Perforce
+        li data={skills: {from: '2012-08-01', category: 'PAAS'}} Heroku
+        li data={skills: {from: '2010-09-01', to: '2011-09-01', category: 'Languages'}} Flash (Flex 4)
+        li data={skills: {from: '2001-02-01', to: '2006-03-01', category: 'Languages'}} Java/JSP
+        li data={skills: {from: '2006-03-01', to: '2008-06-01', category: 'Languages'}} ColdFusion
+
+    #skillsChart data={target: '#skills'}
+
   .col-md-4
     .media
       = image_tag "http://www.gravatar.com/avatar/fd1925c8356bb0ece18731063b25141d?s=150", class: 'media-image'
@@ -75,3 +89,9 @@
           li= link_to "LinkedIn", "http://ca.linkedin.com/in/diazruy", target: '_blank'
           li= link_to "Twitter", "http://twitter.com/diazruy", target: '_blank'
           li= link_to "About.me", "http://about.me/ruydiaz", target: '_blank'
+
+- content_for :javascript do
+  javascript:
+    $(function(){
+      new SkillsChart('#skillsChart');
+    });
