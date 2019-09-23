@@ -82,13 +82,15 @@
 
   .col-md-4
     .media
-      = image_tag "http://www.gravatar.com/avatar/fd1925c8356bb0ece18731063b25141d?s=150", class: 'media-image'
+      = image_tag "http://www.gravatar.com/avatar/fd1925c8356bb0ece18731063b25141d?s=150", class: 'media-image headshot'
       .media-content
-        ul.list-unstyled
-          li= link_to "Stack Overflow", "http://stackoverflow.com/users/302246/ruy-diaz", target: '_blank'
-          li= link_to "LinkedIn", "http://ca.linkedin.com/in/diazruy", target: '_blank'
-          li= link_to "Twitter", "http://twitter.com/diazruy", target: '_blank'
-          li= link_to "About.me", "http://about.me/ruydiaz", target: '_blank'
+        ul.list-unstyled.list-inline
+          li
+            = link_to "http://stackoverflow.com/users/302246/ruy-diaz", target: '_blank', title: "Stack Overflow" do
+              = image_tag "logos/stack_overflow.png", class: 'networklogo'
+          li
+            = link_to "http://ca.linkedin.com/in/diazruy", target: '_blank', title: "LinkedIn" do
+              = image_tag "logos/linkedin.png", class: 'networklogo'
 
 - content_for :javascript do
   javascript:
