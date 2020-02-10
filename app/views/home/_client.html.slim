@@ -1,0 +1,37 @@
+section.client
+  .row
+    .col-xs-8.col-md-7.col-md-offset-1.col-lg-5.col-lg-offset-2
+      h2.client-name
+        - if client[:url]
+          a*{href: client[:url], target: 'blank'} = client[:name]
+        - else
+          = client[:name]
+    .col-xs-4.col-md-3.col-lg-3
+      = image_tag "clients/#{client[:logo]}", class: 'client-logo'
+
+    .clearfix.visible-xs-block
+
+    .col-sm-8.col-md-7.col-md-offset-1.col-lg-5.col-lg-offset-2
+      - if client[:tagline]
+        p.client-tagline = client[:tagline]
+
+      - if client[:projects]
+        ul.projects.list-unstyled
+          - client[:projects].each do |project|
+            li
+              header
+                h3
+                  - if project[:url]
+                    a*{href: project[:url], target: '_blank'} = project[:name]
+                  - else
+                    = project[:name]
+                - if project[:tagline]
+                  p.projects-tagline = project[:tagline]
+              p = project[:description]
+    .col-sm-4.col-md-3.col-lg-3
+      blockquote.client-quote
+        - Array(client[:quote][:text]).each do |quote|
+          p = quote
+        footer = client[:quote][:author]
+
+hr
