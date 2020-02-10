@@ -25,7 +25,8 @@ class window.SkillsChart
     dataByCategories = d3.nest().key((d) -> d.category).entries(data)
     @categories = dataByCategories.map((d) -> d.key).sort()
     fromDates = data.map((d) -> d.from).sort( -> (a, b) -> a.getTime() - b.getTime() )
-    earliestDate = fromDates[0]
+    earliestDate = new Date(fromDates[0])
+    earliestDate.setFullYear(earliestDate.getFullYear() - 2) # So that labels don't get chopped off
 
     @colorScale = d3.scaleLinear()
       .domain([0, @categories.length])
@@ -40,7 +41,6 @@ class window.SkillsChart
     @xScale = d3.scaleTime()
       .domain([earliestDate, Date.now()])
       .range([0, chartWidth])
-      .nice()
 
     @yScale = d3.scaleLinear()
       .domain([0, data.length])

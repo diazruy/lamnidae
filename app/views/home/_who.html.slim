@@ -100,5 +100,7 @@
 - content_for :javascript do
   javascript:
     $(function(){
-      new SkillsChart('#skillsChart');
+      $("#tabs [data-toggle='tab'] a[href='#who']").one('shown.bs.tab', function(){
+        new SkillsChart('#skillsChart');
+      })
     });
