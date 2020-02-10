@@ -1,5 +1,5 @@
 .row
-  .col-md-7.col-md-offset-1
+  .col-xs-8.col-md-7.col-md-offset-1
     p
       | Vancouver, BC based company founded in September 2012 by Ruy Diaz, a Software Developer with over
         #{Time.now.year - 2001} years professional experience, developing software for the web.
@@ -8,8 +8,10 @@
       | With experience ranging from large multinational corporations such as
         Ericsson Telecom and working with the largest cell phone carrier in Mexico,
         to high traffic websites like
+      =<> link_to "REW.ca", "https://www.rew.ca", target: '_blank'
+      | and
       =<> link_to "Citymax.com", "http://citymax.com", target: '_blank'
-      | and start-ups like
+      | as well as start-ups like
       =<> link_to("Orbs.com", "http://orbs.com", target: '_blank') + "."
 
     p
@@ -23,6 +25,20 @@
       =<> link_to("Van.io", "http://van.io", target: "_blank") + '. and'
       a href="http://stackoverflow.com/users/302246/ruy-diaz" Stack Overflow.
 
+  .col-xs-4.col-md-4
+    .media
+      = image_tag "http://www.gravatar.com/avatar/fd1925c8356bb0ece18731063b25141d?s=75", class: 'visible-xs media-image headshot'
+      = image_tag "http://www.gravatar.com/avatar/fd1925c8356bb0ece18731063b25141d?s=150", class: 'hidden-xs media-image headshot'
+      .media-content
+        ul.list-unstyled.list-inline
+          li
+            = link_to "http://stackoverflow.com/users/302246/ruy-diaz", target: '_blank', title: "Stack Overflow" do
+              = image_tag "logos/stack_overflow.png", class: 'networklogo'
+          li
+            = link_to "http://ca.linkedin.com/in/diazruy", target: '_blank', title: "LinkedIn" do
+              = image_tag "logos/linkedin.png", class: 'networklogo'
+
+  .col-xs-12.col-md-11.col-md-offset-1
     p
       | Some of the technologies that Ruy has worked with include:
 
@@ -80,17 +96,6 @@
 
     #skillsChart data={target: '#skills'}
 
-  .col-md-4
-    .media
-      = image_tag "http://www.gravatar.com/avatar/fd1925c8356bb0ece18731063b25141d?s=150", class: 'media-image headshot'
-      .media-content
-        ul.list-unstyled.list-inline
-          li
-            = link_to "http://stackoverflow.com/users/302246/ruy-diaz", target: '_blank', title: "Stack Overflow" do
-              = image_tag "logos/stack_overflow.png", class: 'networklogo'
-          li
-            = link_to "http://ca.linkedin.com/in/diazruy", target: '_blank', title: "LinkedIn" do
-              = image_tag "logos/linkedin.png", class: 'networklogo'
 
 - content_for :javascript do
   javascript:

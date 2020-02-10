@@ -1,3 +1,9 @@
+@import "bootstrap/variables";
+
 .networklogo {
-  width:  50px;
+  width: 35px;
+
+  @media (min-width: $screen-sm-min) {
+    width:  50px;
+  }
 }
