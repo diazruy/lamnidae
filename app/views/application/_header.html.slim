@@ -16,3 +16,10 @@ nav.navbar.navbar-default.navbar-fixed-top
         li data-toggle='tab' = link_to "Work", '#work'
         li data-toggle='tab' = link_to "Ping", '#ping'
 
+- content_for :javascript do
+  javascript:
+    $(function(){
+      $("#tabs [data-toggle='tab'] a").on('click', function() {
+        $('#nav').collapse('hide')
+      });
+    });
