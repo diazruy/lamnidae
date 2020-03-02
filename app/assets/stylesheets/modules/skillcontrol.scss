@@ -1,0 +1,25 @@
+$size: 15px;
+.skillcontrol {
+  > label {
+    line-height: $size;
+
+    > input {
+      visibility: hidden;
+      margin-right: -15px;
+    }
+  }
+
+  &-circle {
+    display: inline-block;
+    width: $size;
+    height: $size;
+    border-radius: $size / 2;
+    margin-right: 5px;
+  }
+
+  &.is-disabled {
+    > label {
+      opacity: 0.65;
+    }
+  }
+}

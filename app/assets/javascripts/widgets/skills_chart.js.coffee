@@ -19,37 +19,64 @@ class window.SkillsChart
   constructor: (chartSel, options) ->
     @$chart = $(chartSel)
     @options = $.extend({}, @defaultOptions, options)
+    @_parseSkills()
+    @_buildControls()
+    @_buildChart()
 
-    data = @_getData()
+  _buildControls: ->
+    @$controls = $('<ul>', class: 'list-unstyled list-inline')
+    for category in @_categories()
+      $li = $('<li>', class: 'skillcontrol')
+      @$controls.append($li.append(@_buildCategoryLabelControl(category)))
 
-    dataByCategories = d3.nest().key((d) -> d.category).entries(data)
-    @categories = dataByCategories.map((d) -> d.key).sort()
-    fromDates = data.map((d) -> d.from).sort( -> (a, b) -> a.getTime() - b.getTime() )
+    @$chart.append(@$controls)
+
+  _buildCategoryLabelControl: (category) ->
+    $label = $('<label>')
+    $checkbox = $("<input type='checkbox' value='#{category}' checked>")
+      .data('category', category)
+      .on 'click', @_handleCategoryChange
+    $label.append($checkbox)
+    $label.append($('<div>', class: 'skillcontrol-circle', css: {backgroundColor: @_colorForCategory(category)}))
+    $label.append($('<span>', text: category))
+
+  _handleCategoryChange: (e) =>
+    e.stopImmediatePropagation()
+    $checkbox = $(e.currentTarget)
+    isSelected = $checkbox.prop('checked')
+    $checkbox.parents('li').toggleClass('is-disabled', !isSelected)
+    @_filterActiveSkillsSkills();
+
+  _filterActiveSkillsSkills: ->
+    activeCategories = @_activeCategories()
+    activeSkills = @skills.filter (skill) -> activeCategories.includes(skill.category)
+    @_updateSkills([])
+    @_updateSkills(activeSkills)
+
+  _activeCategories: ->
+    activeCategories = []
+    @$controls.find('input:checked').each (index, checkbox) ->
+      activeCategories.push checkbox.value
+    activeCategories
+
+  _buildChart: ->
+    fromDates = @skills.map((d) -> d.from).sort( -> (a, b) -> a.getTime() - b.getTime() )
     earliestDate = new Date(fromDates[0])
     earliestDate.setFullYear(earliestDate.getFullYear() - 2) # So that labels don't get chopped off
-
-    @colorScale = d3.scaleLinear()
-      .domain([0, @categories.length])
-      .range(@options.bar.colorRange)
-      .interpolate(d3.interpolateHcl)
 
     # TODO: Resize dynamically with window
     containerWidth = @$chart.outerWidth()
     chartWidth = containerWidth - @options.margin.left - @options.margin.right
-    chartHeight = data.length * (@options.bar.gap + @options.bar.height) + @options.bar.gap
+    chartHeight = @skills.length * (@options.bar.gap + @options.bar.height) + @options.bar.gap
 
     @xScale = d3.scaleTime()
       .domain([earliestDate, Date.now()])
       .range([0, chartWidth])
 
     @yScale = d3.scaleLinear()
-      .domain([0, data.length])
+      .domain([0, @skills.length])
       .range([0, chartHeight])
 
-    # TODO: Change number of ticks in small screen
-    xAxis = d3.axisBottom()
-      .scale(@xScale)
-      .tickSize(10)
 
     svg = d3.select(@$chart.get(0)).append("svg")
       .attr("width", containerWidth )
@@ -59,76 +86,117 @@ class window.SkillsChart
       .append("g")
       .attr("transform", "translate(#{@options.margin.left},#{@options.margin.top})")
 
+    xAxis = d3.axisBottom()
+      .scale(@xScale)
+      .tickSize(10)
+
     mainGroup
       .append('g')
       .attr("transform", "translate(0,#{chartHeight})")
       .call(xAxis)
 
-    projects = mainGroup
-      .append('g')
-      .selectAll("this_is_empty")
-      .data(data)
-      .enter()
+    @skillBars = mainGroup.append('g')
+    @_updateSkills(@skills)
+
+  _updateSkills: (skills) ->
+    selection = @skillBars
+      .selectAll("g")
+      .data(skills, (d) -> d.name )
+
+    selection.exit().remove()
+    selection
+      .enter().call(@_addBar)
+      .merge(selection).call(@_updateBar)
+
+  _addBar: (enter) =>
+    skillBar = enter
+      .append("g")
 
     radius = @options.bar.height / 2
-    innerRects = projects
-      .append("g")
-      .attr("transform", (d, i) =>
-        x = @xScale(d.from)
-        y = @options.bar.gap + i * (@options.bar.height + @options.bar.gap)
-        "translate(#{x},#{y})"
-      )
-    innerRects
+    skillBar
       .append("rect")
       .attr("rx", radius)
       .attr("ry", radius)
-      #.attr("x", (d, i) => @xScale(d.from) )
-      #.attr("y", (d, i) => @options.bar.gap + i * (@options.bar.height + @options.bar.gap) )
-      .attr("width", @_barWidth)
-      .attr("height", @options.bar.height)
-      .attr("fill", @_barColor)
       .attr("stroke", "none")
-    innerRects
+
+    skillBar
       .append('text')
       .attr("class", "label")
       .attr("x", -5)
-      .attr("y", @options.font.size + ((@options.bar.height - @options.font.size) / 2))
       .attr("text-anchor", "end")
+
+  _updateBar: (update) =>
+    skillBar = update
+      .selectAll("g")
+      .attr("transform", @_barPosition)
+
+    skillBar
+      .selectAll("rect")
+      .attr("width", @_barWidth)
+      .attr("height", @options.bar.height)
+      .attr("fill", @_barColor)
+
+    skillBar
+      .selectAll('text')
+      .attr("y", @options.font.size + ((@options.bar.height - @options.font.size) / 2))
       .text((d,i) => d.name)
 
-
+  _barPosition: (d, i) =>
+    x = @xScale(d.from)
+    y = @options.bar.gap + i * (@options.bar.height + @options.bar.gap)
+    "translate(#{x},#{y})"
 
   _barWidth: (d, i) =>
     endDate = d.to || Date.now() # If no end, assume ongoing
     @xScale(endDate) - @xScale(d.from)
 
   _barColor: (d) =>
-    d3.rgb(@colorScale(@categories.indexOf(d.category)))
+    @_colorForCategory(d.category)
 
-  _getData: ->
-    data = []
+  _parseSkills: ->
+    @skills = []
+
+    @skillsByCategory = @$chart.data('skills')
+
+    for category, skills of @skillsByCategory
+      for skill in skills
+        @skills.push @_formatSkill(skill, category)
+
+    @skills.sort @_sortSkills
+
+  _formatSkill: (skill, category) ->
     parseDate = d3.timeParse('%Y-%m-%d')
+    {
+      name: skill.name
+      from: parseDate(skill.from)
+      to: parseDate(skill.to)
+      category: category
+    }
 
-    $dataSource = $(@$chart.data('target'))
-    $dataSource.find('[data-skills-from]').each (_index, el) ->
-      $el = $(el)
-      elData = $el.data()
-      data.push
-        name: $el.text()
-        from: parseDate(elData.skillsFrom)
-        to: parseDate(elData.skillsTo)
-        category: elData.skillsCategory
-
-    data.sort (a, b) ->
-      byStart = a.from.getTime() - b.from.getTime()
-      if byStart == 0
-        if a.category == b.category
-          byEnd = (a.to || new Date()).getTime() - (b.to || new Date()).getTime()
-          if byEnd == 0
-            byName = a.name > b.name ? 1 : -1
-          else
-            byEnd
+  _sortSkills: (a, b) ->
+    byStart = a.from.getTime() - b.from.getTime()
+    if byStart == 0
+      if a.category == b.category
+        byEnd = (a.to || new Date()).getTime() - (b.to || new Date()).getTime()
+        if byEnd == 0
+          byName = a.name > b.name ? 1 : -1
         else
-          a.category > b.category
+          byEnd
       else
-        byStart
+        a.category > b.category
+    else
+      byStart
+
+  _categories: ->
+    @categories ?= Object.keys(@skillsByCategory).sort()
+
+  _colorScale: (index) ->
+    @colorScale ?= d3.scaleLinear()
+      .domain([0, @_categories().length])
+      .range(@options.bar.colorRange)
+      .interpolate(d3.interpolateHcl)
+
+    @colorScale(index)
+
+  _colorForCategory: (category) ->
+    d3.rgb(@_colorScale(@_categories().indexOf(category)))
