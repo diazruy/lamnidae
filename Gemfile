@@ -40,7 +40,7 @@ gem 'dotenv-rails', groups: [:development, :test]
 gem 'bootsnap', '>= 1.1.0', require: false
 
 # Form generation
-gem 'simple_form', '~> 4'
+gem 'simple_form', '~> 5'
 
 # Send forms by mail
 gem 'mail_form'
